@@ -18,7 +18,6 @@
 			"failureBehavior": "Fail",
 			"maxJobDurationInSeconds": 600,
 			"robotApplications": [{
-				"application": "<ROBOT_APP_ARN>",
 				"applicationVersion": "$LATEST",
 				"launchConfig": {
 					"launchFile": "await_commands.launch",
@@ -26,7 +25,6 @@
 				}
 			}],
 			"simulationApplications": [{
-				"application": "<SIMULATION_APP_ARN>",
 				"applicationVersion": "$LATEST",
 				"launchConfig": {
                     "packageName": "cloudwatch_simulation",
