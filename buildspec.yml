@@ -1,7 +1,7 @@
 version: 0.2 
 env:
   variables:
-    S3_BUCKET: ozkancan-rm-ws-eu-central-1-rmw-assets
+    S3_BUCKET: cicd-s3bucket-mc54ll2w5s60
     APP_NAME: cicd
     CACHE_DIR: cache
     ROBOT_WS: robot_ws
