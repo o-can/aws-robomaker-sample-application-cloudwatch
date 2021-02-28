@@ -16,12 +16,7 @@
 		"scenarios": [ "QuickNavBookStore" ],
 		"params": {
 			"failureBehavior": "Fail",
-			"iamRole": "<IAM_ROLE>",
 			"maxJobDurationInSeconds": 600,
-			"outputLocation": {
-				"s3Bucket": "<S3_BUCKET>",
-				"s3Prefix": "<S3_PREFIX>"
-			},
 			"robotApplications": [{
 				"application": "<ROBOT_APP_ARN>",
 				"applicationVersion": "$LATEST",
@@ -40,8 +35,8 @@
 			}],
 			"vpcConfig": {
 				"assignPublicIp": true,
-				"subnets": [ "<SUBNET_1>", "<SUBNET_2>" ],
-            	                "securityGroups": [ "<SECURITY_GROUP>" ]
+				"subnets": [],
+            	                "securityGroups": []
 			}
 		}
 	}]
