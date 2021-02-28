@@ -1,0 +1,48 @@
+{
+	"scenarios": {
+	    "QuickNavBookStore": {
+	      "robotEnvironmentVariables": {
+	        "ROS_AWS_REGION": "eu-central-1"
+	      },
+	      "simEnvironmentVariables": {
+	        "ROS_AWS_REGION": "eu-central-1",
+	        "TURTLEBOT3_MODEL": "waffle_pi",
+	        "NAVIGATION_SUCCESS_COUNT": "1",
+	        "SIMULATION_WORLD": "bookstore"
+	      }
+	    }
+	},
+	"simulations": [{
+		"scenarios": [ "QuickNavBookStore" ],
+		"params": {
+			"failureBehavior": "Fail",
+			"iamRole": "<IAM_ROLE>",
+			"maxJobDurationInSeconds": 600,
+			"outputLocation": {
+				"s3Bucket": "<S3_BUCKET>",
+				"s3Prefix": "<S3_PREFIX>"
+			},
+			"robotApplications": [{
+				"application": "<ROBOT_APP_ARN>",
+				"applicationVersion": "$LATEST",
+				"launchConfig": {
+					"launchFile": "await_commands.launch",
+					"packageName": "cloudwatch_robot"
+				}
+			}],
+			"simulationApplications": [{
+				"application": "<SIMULATION_APP_ARN>",
+				"applicationVersion": "$LATEST",
+				"launchConfig": {
+                    "packageName": "cloudwatch_simulation",
+                    "launchFile": "worlds.launch"
+				}
+			}],
+			"vpcConfig": {
+				"assignPublicIp": true,
+				"subnets": [ "<SUBNET_1>", "<SUBNET_2>" ],
+            	                "securityGroups": [ "<SECURITY_GROUP>" ]
+			}
+		}
+	}]
+}
